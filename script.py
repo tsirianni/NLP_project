@@ -16,7 +16,10 @@ anna_nd_affair = open("THAT AFFAIR NEXT DOOR.txt",encoding='utf-8').read().lower
 
 
 # Tokenization
-def book_tokenizer(book): # Tokenizes by both sentence and words
+def book_tokenizer(book):
+
+    '''Tokenizes books by both sentence and words'''
+
     sentence_tokenizer = PunktSentenceTokenizer(book)
     tokenized_sentence = sentence_tokenizer.tokenize(book)
     
@@ -36,6 +39,8 @@ tokenized_anna_nd_affair= book_tokenizer(anna_nd_affair)
 
 # Part-of-speech tag
 def book_tagging(book):
+
+    '''Adds part-of-speech tags to tokenized words'''
     
     tagged_book = []
     
@@ -64,6 +69,8 @@ vp_parser = RegexpParser(vp_chunk)
 # Defining counters
 def np_chunk_counter(chunked_sentences):
     
+    '''Counts the number of noun phrases matched'''
+
     chunks = list()
 
     for chunked_sentence in chunked_sentences:
@@ -79,6 +86,8 @@ def np_chunk_counter(chunked_sentences):
 
 def vp_chunk_counter(chunked_sentences):
 
+    '''Counts the number of verb phrases matched'''
+    
     chunks = list()
 
     for chunked_sentence in chunked_sentences:
@@ -110,6 +119,8 @@ len(vp_chunk_counter(vp_chunks_sh_adventures))
 # Common chunks
 def np_common_chunks(chunked_sentences):
     
+    '''Returns most common noun phrases'''
+    
     chunks = list()
 
     for chunked_sentence in chunked_sentences:
@@ -126,6 +137,8 @@ def np_common_chunks(chunked_sentences):
 
 def vp_common_chunks(chunked_sentences):
 
+    '''Returns most common verb phrases'''
+    
     chunks = list()
 
     for chunked_sentence in chunked_sentences:
@@ -222,6 +235,8 @@ for adjective in tagged_sh_adventures:
     sh_adventures_complexity.append(adj_parser.parse(adjective))
 
 def adjective_counter(chunked_sentences):
+    
+    '''Counts number of adjectives'''
     
     chunks = list()
 
